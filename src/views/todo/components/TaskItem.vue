@@ -51,26 +51,16 @@ export default defineComponent({
   },
   emits: ['deleteItem', 'done'], // 此处为了校验方法
   setup (props, context) {
-    const defaultCheckList = computed(() => {
-      let checks: string[] = []
-      props.checkList.filter((item: any) => {
-        checks.push(item.label)
-      })
-      console.log(checks, 222)
-      return checks
-    })
     // 删除子项
     function handleDelete (index: number) {
       context.emit('deleteItem', index)
     }
 
     function onChange (e: any) {
-      console.log('checked = ', e.target.value)
       context.emit('done', e.target.value)
     }
 
     return {
-      defaultCheckList,
       handleDelete,
       onChange
     }

@@ -26,7 +26,7 @@ import { TASK_TYPES } from '@/types/todo'
       })
 
       // 类型处理
-      function onChange (e: Event) {
+      function onChange (e: any) {
         context.emit('toggle', e.target.value)
       }
 
